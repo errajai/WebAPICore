@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { NextonesComponent } from './nextones/nextones.component';
 import { NextoneComponent } from './nextones/nextone/nextone.component';
 import { NextoneListComponent } from './nextones/nextone-list/nextone-list.component';
+import { NextoneService } from './shared/nextone.service';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms'
 
 @NgModule({
   declarations: [
@@ -16,9 +19,11 @@ import { NextoneListComponent } from './nextones/nextone-list/nextone-list.compo
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
-  providers: [],
+  providers: [NextoneService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

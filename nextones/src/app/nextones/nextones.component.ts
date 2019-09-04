@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {NextoneService} from '../shared/nextone.service'
+import { Nextone } from '../shared/nextone.model';
 
 @Component({
   selector: 'app-nextones',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NextonesComponent implements OnInit {
 
-  constructor() { }
+  // nextones :Nextone[];
+  constructor(private service : NextoneService) { }
 
   ngOnInit() {
+    // this.service.getAllNextones().subscribe(data =>{
+    //   console.log(data);
+    //   this.nextones = data;
+    // })
   }
 
 }
