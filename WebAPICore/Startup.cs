@@ -48,6 +48,12 @@ namespace WebAPICore
             }
 
             app.UseMvc();
+            app.UseCors(option =>
+            {
+                option.AllowAnyOrigin();
+                option.AllowAnyHeader();
+                option.AllowAnyMethod();
+            });
             DummyData.Initialize(app);
         }
     }
