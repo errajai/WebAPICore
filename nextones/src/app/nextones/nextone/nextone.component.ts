@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NextoneService } from 'src/app/shared/nextone.service';
 import { NgForm } from '@angular/forms';
-import { format } from 'util';
 
 @Component({
   selector: 'app-nextone',
@@ -23,10 +22,20 @@ export class NextoneComponent implements OnInit {
       NextoneId : 0,
       FirstName : '',
       LastName : '',
-      ExpYears : 0,
+      ExpYears : null,
       UrlImage : '',
       Missions : null
     }
+  }
+
+  onSubmit(form : NgForm){
+    this.addRecord(form)
+  }
+
+  addRecord(form : NgForm){
+    this.service.postNextone(form.value).subscribe(res => {
+      this.resetForm(form);
+    });
   }
 
 }

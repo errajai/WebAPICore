@@ -1,18 +1,19 @@
-<form #form="ngForm" autocomplete="off">
+<form #form="ngForm" (submit)="onSubmit(form)" autocomplete="off">
 
     <div class="form-group">
         <label>First Name</label>
-        <input name="FirstName" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName" class="from-control" required>
+        <input name="FirstName" #FirstName="ngModel" [(ngModel)]="service.formData.FirstName" class="form-control" required>
+        <div class="validation-error" *ngIf="FirstName.invalid && FirstName.touched">This field is required</div>
     </div>
     <div class="form-group">
         <label>Last Name</label>
-        <input name="LastName" #LastName="ngModel" [(ngModel)]="service.formData.LastName" class="from-control">
+        <input name="LastName" #LastName="ngModel" [(ngModel)]="service.formData.LastName" class="form-control">
     </div>
     <div class="form-group">
         <label>Years Exp</label>
-        <input name="ExpYears" #ExpYears="ngModel" [(ngModel)]="service.formData.ExpYears" class="from-control">
+        <input name="ExpYears" #ExpYears="ngModel" [(ngModel)]="service.formData.ExpYears" class="form-control">
     </div>
-    <div class="from-control">
-        <button type="submit" class="btn btn-lg btn-block">Submit</button>
+    <div class="form-group">
+        <button type="submit" [disabled]="form.invalid" class="btn btn-lg btn-block btn-primary">SUBMIt</button>
     </div>
 </form>

@@ -17,4 +17,8 @@ export class NextoneService {
   getAllNextones():Observable<Nextone[]>{
     return this.http.get<Nextone[]>(this.url);
   }
+
+  postNextone(formData : Nextone){
+   return this.http.post(this.url,formData);
+  }
 }
